@@ -6,20 +6,21 @@ package 예제0410;
 import java.util.Scanner;
 
 class Sample{
-	public int a;
-	private int b;
-	int c;
+	public int a;	// public : accessible everywhere
+	private int b;	// private : accessible only within the Sample class
+	int c;			// default (package-private) : accessible within the same package
 }
 
 public class AccessEx {
 	
 	public static void main(String[] args) {
 		Sample aClass = new Sample();
-		aClass.a = 10;
+		aClass.a = 10;	// this wont cause an error because a is indeed public
 		// aClass.b = 10; 
 		// b는 private으로 선언이 되었으므로
 		// AccessEx 클래스에서 접근 불가능
-		aClass.c = 10;
+		// this one will prompt an error
+		aClass.c = 10; // this one is fine too
 	}
 
 }
