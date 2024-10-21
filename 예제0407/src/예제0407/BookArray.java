@@ -6,11 +6,19 @@
 
 
 package 예제0407;
-import java.util.Scanner;
+import java.util.Scanner; // import Scanner utility
 
+// use to define properties and behaviours of a single book
 class Book{
-	String title, author;
+	String title, author; // field tor store book's title and author
 	
+	// constructor with 0 parameters; default -> empty string
+	public Book(){
+		this.title = "";
+		this.author = "";
+	}
+
+	// constructor with 2 parameters; title and author
 	public Book(String title, String author) {
 		this.title = title;
 		this.author = author;
@@ -21,22 +29,28 @@ public class BookArray {
 	
 	public static void main(String[] args) {
 		
+		// declare an array to hold 2 Book object
 		Book [] book = new Book[2];	// Book 배열 선언
 		
-		Scanner s = new Scanner(System.in);
+		Scanner s = new Scanner(System.in); // Scanner object user to enter inputs
 		
+		// loop to get the title and author for each book from the user
 		for(int i=0; i<book.length; i++) {
-			System.out.print("제목>>");
-			String title = s.nextLine();
+			
+			System.out.print("제목>>"); // enter book title
+			String title = s.nextLine(); // get input and read
+
 			System.out.print("저자>>");
 			String author = s.nextLine();
+			
 			book[i] = new Book(title, author);
 		}
 		
+		// loop to print the title and authors of the books
 		for(int i=0; i<book.length; i++)
 			System.out.print("(" + book[i].title + ", " + book[i].author + ")");
-		
-		s.close();
+			// print each book's title and author
+		s.close(); // close scanner object - free up resources
 	}
 
 }
